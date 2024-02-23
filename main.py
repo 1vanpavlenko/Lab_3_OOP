@@ -3,7 +3,6 @@ import turtle
 import random
 
 triangles = []
-hex_alphabet = [str(hex(i))[2:] for i in range(16)]
 
 for i in range(100):
     x1, y1 = random.randint(-100, 100), random.randint(-100, 100)
@@ -15,12 +14,18 @@ for i in range(100):
 
     t.set_position(x, y)
 
-    color = '#'
+    r, g, b = (random.randint(0, 255) for _ in range(3))
 
-    for c in range(6):
-        color += hex_alphabet[random.randint(0, 15)]
+    color = r << 16 | g << 8 | b
 
-    t.set_color(color)
+    hex_color = str(hex(color))[2:]
+
+    if len(hex_color) < 6:
+        hex_color = (6 - len(hex_color)) * '0' + hex_color
+
+        print(hex_color)
+
+    t.set_color('#' + hex_color)
 
     triangles.append(t)
 
