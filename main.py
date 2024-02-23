@@ -23,8 +23,6 @@ for i in range(100):
     if len(hex_color) < 6:
         hex_color = (6 - len(hex_color)) * '0' + hex_color
 
-        print(hex_color)
-
     t.set_color('#' + hex_color)
 
     triangles.append(t)
