@@ -32,7 +32,7 @@ class Triangle:
 
         turtle.color(self.color)
 
-        turtle.speed(1)
+        turtle.speed(0.5)
 
         turtle.up()
 

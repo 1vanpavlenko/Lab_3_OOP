@@ -1,14 +1,30 @@
 from Triangle import Triangle
 import turtle
+import random
 
-triangle = Triangle(100, 100, 100, 0)
+triangles = []
+hex_alphabet = [str(hex(i))[2:] for i in range(16)]
 
-triangle.set_color("#FEDCBA")
-triangle.draw()
+for i in range(100):
+    x1, y1 = random.randint(-100, 100), random.randint(-100, 100)
+    x2, y2 = random.randint(-100, 100), random.randint(-100, 100)
 
-triangle.set_position(-100, 200)
+    t = Triangle(x1, y1, x2, y2)
 
-triangle.set_color("#ABCDEF")
-triangle.draw()
+    x, y = random.randint(-100, 100), random.randint(-100, 100)
+
+    t.set_position(x, y)
+
+    color = '#'
+
+    for c in range(6):
+        color += hex_alphabet[random.randint(0, 15)]
+
+    t.set_color(color)
+
+    triangles.append(t)
+
+for triangle in triangles:
+    triangle.draw()
 
 turtle.mainloop()
